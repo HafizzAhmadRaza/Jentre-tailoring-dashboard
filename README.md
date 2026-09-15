@@ -2,7 +2,7 @@
 
 A simple dashboard I built to help track daily work for the tailors at my family's shop, Jentre. This is my first project built from scratch using HTML, CSS, and JavaScript.
 
-![Jentre dashboard screenshot](./screenshot.png)
+![Jentre dashboard screenshot](./Screenshot.png)
 
 ## Why I built this
 
