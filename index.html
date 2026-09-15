@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jentre.pk Tailoring Dashboard</title>
+    <link rel="icon" href="data:," />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <i class="ti ti-scissors"></i>
+        <span>Jentre</span>
+      </div>
+      <span class="admin-badge"></span>
+    </header>
+    <main class="dashboard">
+      <nav class="tailor-list" aria-label="tailor Profiles">
+        <ul id="tailor-list-ul">
+          <!-- JS renders all tailor chips + the Add Tailor button here on load -->
+        </ul>
+      </nav>
+      <section class="tailor-summary" aria-label="Selected tailor-summary">
+        <div class="summary-header">
+          <div>
+            <h2 id="selected-tailor-name">Sara Ahmed</h2>
+            <button
+              class="icon-btn"
+              id="rename-tailor-btn"
+              aria-label="Rename tailor"
+            >
+              <i class="ti ti-pencil"></i>
+            </button>
+            <button
+              class="icon-btn"
+              id="delete-tailor-btn"
+              aria-label="Delete tailor"
+            >
+              <i class="ti ti-trash"></i>
+            </button>
+            <p class="subtitle">Tailor profiles</p>
+          </div>
+          <span class="avatar large">SA</span>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <p class="stat-label">Pieces this month</p>
+            <p class="stat-value" id="stat-pieces">142</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-label">Earnings</p>
+            <p class="stat-value" id="stat-earnings">Rs 21,300</p>
+          </div>
+        </div>
+      </section>
+      <section class="add-entry" aria-label="Add entry form">
+        <h3>Add today's entry</h3>
+        <form id="entry-form">
+          <label for="entry-category">Category</label>
+          <select id="entry-category" name="category" required>
+            <option value="shirt">Shirt</option>
+            <option value="trouser">Trouser</option>
+            <option value="pajama">Pajama</option>
+          </select>
+
+          <div class="form-row">
+            <div>
+              <label for="entry-pieces">Pieces</label>
+              <input
+                type="number"
+                id="entry-pieces"
+                name="pieces"
+                min="1"
+                required
+              />
+            </div>
+            <div>
+              <label for="entry-rate">Rate per piece</label>
+              <input
+                type="number"
+                id="entry-rate"
+                name="rate"
+                min="1"
+                required
+              />
+            </div>
+          </div>
+          <button type="submit" id="add-entry-btn">
+            <i class="ti ti-plus"></i> Add entry
+          </button>
+        </form>
+      </section>
+      <section class="history" aria-label="Recent work history">
+        <h3>Recent history</h3>
+
+        <div class="history-filters">
+          <select id="filter-category">
+            <option value="all">All categories</option>
+            <option value="shirt">Shirt</option>
+            <option value="trouser">Trouser</option>
+            <option value="pajama">Pajama</option>
+          </select>
+          <input
+            type="text"
+            id="filter-search"
+            placeholder="Search entries..."
+          />
+        </div>
+
+        <button
+          id="monthly-summary-btn"
+          class="icon-btn"
+          aria-label="Monthly summary"
+        >
+          <i class="ti ti-calendar"></i> Monthly summary
+        </button>
+
+        <ul id="history-list">
+          <!-- JS renders entries here -->
+        </ul>
+        <p
+          id="undo-msg"
+          style="display: none; font-size: 13px; color: #0f6e56; margin-top: 8px;"
+        >
+          Entry deleted.
+          <button
+            id="undo-btn"
+            style="text-decoration: underline; background: none; border: none; color: #0f6e56; cursor: pointer;"
+          >
+            Undo
+          </button>
+        </p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>Jentre Tailoring &middot; Internal dashboard</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
