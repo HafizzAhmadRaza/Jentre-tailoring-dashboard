@@ -1,0 +1,27 @@
+{
+  "name": "jentre-tailoring-project",
+  "version": "1.0.0",
+  "description": "A simple dashboard I built to help track daily work for the tailors at my family's shop, Jentre. This is my first project built from scratch using HTML, CSS, and JavaScript.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HafizzAhmadRaza/Jentre-tailoring-dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/HafizzAhmadRaza/Jentre-tailoring-dashboard/issues"
+  },
+  "homepage": "https://github.com/HafizzAhmadRaza/Jentre-tailoring-dashboard#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.8"
+  }
+}
