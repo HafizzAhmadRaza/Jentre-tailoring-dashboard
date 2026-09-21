@@ -58,84 +58,86 @@
           </div>
         </div>
       </section>
-      <section class="add-entry" aria-label="Add entry form">
-        <h3>Add today's entry</h3>
-        <form id="entry-form">
-          <label for="entry-category">Category</label>
-          <select id="entry-category" name="category" required>
-            <option value="shirt">Shirt</option>
-            <option value="trouser">Trouser</option>
-            <option value="pajama">Pajama</option>
-          </select>
+      <div class="desktop-row-layout">
+        <section class="add-entry" aria-label="Add entry form">
+          <h3>Add today's entry</h3>
+          <form id="entry-form">
+            <label for="entry-category">Category</label>
+            <select id="entry-category" name="category" required>
+              <option value="shirt">Shirt</option>
+              <option value="trouser">Trouser</option>
+              <option value="pajama">Pajama</option>
+            </select>
 
-          <div class="form-row">
-            <div>
-              <label for="entry-pieces">Pieces</label>
-              <input
-                type="number"
-                id="entry-pieces"
-                name="pieces"
-                min="1"
-                required
-              />
+            <div class="form-row">
+              <div>
+                <label for="entry-pieces">Pieces</label>
+                <input
+                  type="number"
+                  id="entry-pieces"
+                  name="pieces"
+                  min="1"
+                  required
+                />
+              </div>
+              <div>
+                <label for="entry-rate">Rate per piece</label>
+                <input
+                  type="number"
+                  id="entry-rate"
+                  name="rate"
+                  min="1"
+                  required
+                />
+              </div>
             </div>
-            <div>
-              <label for="entry-rate">Rate per piece</label>
-              <input
-                type="number"
-                id="entry-rate"
-                name="rate"
-                min="1"
-                required
-              />
-            </div>
+            <button type="submit" id="add-entry-btn">
+              <i class="ti ti-plus"></i> Add entry
+            </button>
+          </form>
+        </section>
+        <section class="history" aria-label="Recent work history">
+          <h3>Recent history</h3>
+
+          <div class="history-filters">
+            <select id="filter-category">
+              <option value="all">All categories</option>
+              <option value="shirt">Shirt</option>
+              <option value="trouser">Trouser</option>
+              <option value="pajama">Pajama</option>
+            </select>
+            <input
+              type="text"
+              id="filter-search"
+              placeholder="Search entries..."
+            />
           </div>
-          <button type="submit" id="add-entry-btn">
-            <i class="ti ti-plus"></i> Add entry
-          </button>
-        </form>
-      </section>
-      <section class="history" aria-label="Recent work history">
-        <h3>Recent history</h3>
 
-        <div class="history-filters">
-          <select id="filter-category">
-            <option value="all">All categories</option>
-            <option value="shirt">Shirt</option>
-            <option value="trouser">Trouser</option>
-            <option value="pajama">Pajama</option>
-          </select>
-          <input
-            type="text"
-            id="filter-search"
-            placeholder="Search entries..."
-          />
-        </div>
-
-        <button
-          id="monthly-summary-btn"
-          class="icon-btn"
-          aria-label="Monthly summary"
-        >
-          <i class="ti ti-calendar"></i> Monthly summary
-        </button>
-
-        <ul id="history-list">
-          <!-- JS renders entries here -->
-        </ul>
-        <p
-          id="undo-msg"
-          style="display: none; font-size: 13px; color: #0f6e56; margin-top: 8px;"
-        >
-          Entry deleted.
           <button
-            id="undo-btn"
-            style="text-decoration: underline; background: none; border: none; color: #0f6e56; cursor: pointer;"
+            id="monthly-summary-btn"
+            class="icon-btn"
+            aria-label="Monthly summary"
           >
-            Undo
+            <i class="ti ti-calendar"></i> Monthly summary
           </button>
-        </p>
-      </section>
+
+          <ul id="history-list">
+            <!-- JS renders entries here -->
+          </ul>
+          <p
+            id="undo-msg"
+            style="display: none; font-size: 13px; color: #0f6e56; margin-top: 8px;"
+          >
+            Entry deleted.
+            <button
+              id="undo-btn"
+              style="text-decoration: underline; background: none; border: none; color: #0f6e56; cursor: pointer;"
+            >
+              Undo
+            </button>
+          </p>
+        </section>
+      </div>
     </main>
     <footer class="site-footer">
       <p>Jentre Tailoring &middot; Internal dashboard</p>
