@@ -1,15 +1,15 @@
 # Jentre Tailoring Dashboard
 
-A simple dashboard I built to help track daily work for the tailors at my family's shop, Jentre. This is my first project built from scratch using HTML, CSS, and JavaScript.
+A simple dashboard built to track daily work for the tailors at my family's shop, Jentre.pk. Built from scratch using HTML, CSS, and Vanilla JavaScript.
 
 ![Jentre dashboard screenshot](./Screenshot.png)
-**[Live Demo →]( https://hafizzahmadraza.github.io/Jentre-tailoring-dashboard/)**
+**[Live Demo →](https://hafizzahmadraza.github.io/Jentre-tailoring-dashboard/)**
 
 ## Why I built this
 
-My mom handles the tailoring side of Jentre, our online boutique. A few tailors work with her, and every day they'd come and tell her what they stitched shirts, trousers, pajamas, whatever it was — and she'd write it all down on a register by hand.
+My mom handles the tailoring side of Jentre, our online boutique. A few tailors work with her, and every day they'd come and tell her what they stitched  shirts, trousers, pajamas — and she'd write it all down on a register by hand.
 
-I was learning JavaScript around this time and looking for a small real project to practice on. One day I was watching her write it all down in the register, and it clicked  this was something I could actually build. It could've just as easily been done in Excel or Google Sheets, but I wanted the practice of building it myself, so I decided to make this instead.
+While I have explored advanced workflows previously, this Jentre Dashboard is my first independent project focused entirely on raw fundamentals. I wanted a real-world problem to practice Vanilla JavaScript on without relying on frameworks or AI generation. Watching her manage daily records manually clicked that I could build a functional digital tool for her to solidify my DOM manipulation and state persistence skills.
 
 ## What it does
 
@@ -25,45 +25,56 @@ I was learning JavaScript around this time and looking for a small real project 
 - Add a new tailor anytime
 - All data is saved in the browser using localStorage, so it's still there after a refresh
 
-## Tech stack 
+## Tech stack
 
-- HTML
-- CSS
-- JavaScript (no frameworks, no libraries  just vanilla JS)
-- localStorage for saving data (no backend/database yet)
-
-I kept this simple on purpose. This is my first project and I'm still learning JavaScript, so I didn't want to jump into React or a backend before I was solid on the basics.
+- **HTML5 & CSS3:** Responsive UI layout structured with CSS Grid and Flexbox.
+- **Vanilla JavaScript (ES6 Modules):** No external frameworks or libraries.
+- **3-Tier Architecture:** Clean separation of concerns divided into:
+  - `state.js` — Data structures, mutations, and `localStorage` sync.
+  - `ui.js` — DOM rendering, summary updates, and UI helper functions.
+  - `script.js` — Main controller, form handling, and event listeners.
+- **Tooling:** ESLint & Prettier for code formatting and quality standards.
 
 ## How to run it
 
-No installation needed. Just download the files and open `index.html` in your browser.
+Since the project uses native ES6 Modules, it must be served over an HTTP server (e.g., VS Code Live Server) to prevent browser CORS policy restrictions on local file imports.
 
-```
+```text
 jentre-tailoring/
+├── .vscode/
 ├── index.html
 ├── style.css
-├── script.js
-├── screenshot.png
+├── state.js            <-- Data engine & localStorage logic
+├── ui.js               <-- DOM rendering module
+├── script.js           <-- Main event controller
+├── Screenshot.png
+├── eslint.config.mjs   <-- Linter configuration
+├── package.json        <-- Project tooling dependencies
+├── package-lock.json
 ├── LICENSE
 └── .gitignore
 ```
 
 The dashboard comes with some sample data (a few tailors and entries) already filled in, so you can see how it works right away. If you want to start fresh, just clear your browser's localStorage for this page.
 
+
 ## What I struggled with (and learned)
 
-This was my first time really working with JavaScript, so a lot of this project was trial and error:
+Engineering Challenges & learnings:
 
-Ran into a lot of bugs early on just from typos mixing up uppercase and lowercase in class names between my HTML and CSS (like Tailor-chip vs tailor-chip). Cost me a lot of debugging time until I made it a habit to keep everything lowercase and consistent.
-The trickiest bug was with tailor IDs. I was generating new IDs based on the array length, but after deleting and adding tailors a few times, one specific tailor stopped working properly  clicking on it would show a different tailor's data instead. Took a while to figure out the IDs were colliding. Fixed it by generating IDs based on the highest existing ID instead of the array length.
-Also learned how event delegation works, since buttons like edit and delete are created dynamically and don't exist yet when the page first loads.
+● Case-Sensitivity Bugs: Experienced early layout bugs due to HTML/CSS class naming mismatches (e.g., Tailor-chip vs tailor-chip), establishing a strict convention to maintain consistent lowercase naming.   
+● State ID Collision: Initially generated IDs based on array length, causing collisions after deletions. Resolved this by dynamically calculating IDs based on the highest existing ID.  
+● ES6 Modular Refactoring: Migrated a monolithic script into 3 distinct modules (state.js, ui.js, script.js) to enforce encapsulation, handle live bindings safely, and manage strict module scoping.   
+● Event Delegation: Implemented dynamic event listeners on parent elements for dynamically generated edit/delete buttons in the history list
+
 
 ## Next steps
-
-- Calendar view to see work by specific date
-- Category management (currently hardcoded to shirt/trouser/pajama)
-- A proper backend instead of localStorage
-- Rebuilding this with React once I learn it
+```
+-Add calendar-based filtering for specific date ranges.
+-Dynamic category management (currently hardcoded categories).
+-Upgrade backend persistence from localStorage to a REST API (Node.js/Express).
+-Migrate frontend to React after mastering core JavaScript fundamentals.
+```
 
 ## License
 
