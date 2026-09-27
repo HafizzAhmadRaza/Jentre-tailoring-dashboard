@@ -12,6 +12,9 @@ import {
   setSelectedTailorId,
   lastDeletedEntry,
   setLastDeletedEntry,
+  currentEditingId,
+  setEditingId,
+  updateEntry,
 } from "./state.js";
 import {
   renderTailorList,
@@ -29,6 +32,7 @@ updateSummary();
 // ----- FORM SUBMIT -----
 
 const entryForm = document.getElementById("entry-form");
+const submitBtn = document.querySelector("#entry-form button[type='submit']");
 
 entryForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -37,7 +41,16 @@ entryForm.addEventListener("submit", function (e) {
   const pieces = Number(document.getElementById("entry-pieces").value);
   const rate = Number(document.getElementById("entry-rate").value);
 
-  addEntry({ category, pieces, rate });
+  if (currentEditingId) {
+    // Agar Edit mode on hai, toh update karo
+    updateEntry(currentEditingId, { category, pieces, rate });
+    setEditingId(null); // Edit mode band karo
+    submitBtn.textContent = "+ Add entry"; // Button text wapas normal karo
+  } else {
+    // Agar Edit mode off hai, toh nayi entry add karo
+    addEntry({ category, pieces, rate });
+  }
+
   renderHistory();
   updateSummary();
   entryForm.reset();
@@ -156,10 +169,10 @@ document.getElementById("history-list").addEventListener("click", function (e) {
     document.getElementById("entry-pieces").value = entry.pieces;
     document.getElementById("entry-rate").value = entry.rate;
 
-    deleteEntry(entryId);
+    setEditingId(entryId);
 
-    renderHistory();
-    updateSummary();
+    document.querySelector("#entry-form button[type='submit']").textContent =
+      "Update Entry";
   }
 });
 

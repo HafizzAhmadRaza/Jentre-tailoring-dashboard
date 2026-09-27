@@ -141,3 +141,21 @@ export function updateTailorName(id, newName) {
     saveData();
   }
 }
+
+export let currentEditingId = null;
+
+export function setEditingId(id) {
+  currentEditingId = id;
+}
+
+export function updateEntry(id, updatedData) {
+  const entry = entries.find(function (e) {
+    return e.id === id;
+  });
+  if (entry) {
+    entry.category = updatedData.category;
+    entry.pieces = updatedData.pieces;
+    entry.rate = updatedData.rate;
+    saveData();
+  }
+}
