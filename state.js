@@ -1,7 +1,7 @@
 // ----- DATA -----
 
 export let tailors = [
-  { id: 1, name: "Sara Ahmed", initials: "SA" },
+  { id: 1, name: "Sara", initials: "SA" },
   { id: 2, name: "Sadaf", initials: "SD" },
   { id: 3, name: "Muqadas", initials: "MQ" },
   { id: 4, name: "Amna", initials: "AM" },
