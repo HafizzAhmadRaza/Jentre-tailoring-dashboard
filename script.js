@@ -42,12 +42,12 @@ entryForm.addEventListener("submit", function (e) {
   const rate = Number(document.getElementById("entry-rate").value);
 
   if (currentEditingId) {
-    // Agar Edit mode on hai, toh update karo
+    
     updateEntry(currentEditingId, { category, pieces, rate });
-    setEditingId(null); // Edit mode band karo
-    submitBtn.textContent = "+ Add entry"; // Button text wapas normal karo
+    setEditingId(null); 
+    submitBtn.textContent = "+ Add entry"; 
   } else {
-    // Agar Edit mode off hai, toh nayi entry add karo
+
     addEntry({ category, pieces, rate });
   }
 
@@ -171,8 +171,7 @@ document.getElementById("history-list").addEventListener("click", function (e) {
 
     setEditingId(entryId);
 
-    document.querySelector("#entry-form button[type='submit']").textContent =
-      "Update Entry";
+    document.querySelector("#entry-form button[type='submit']").textContent = "Update Entry";
   }
 });
 
