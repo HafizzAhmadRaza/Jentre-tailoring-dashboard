@@ -2,7 +2,7 @@
 
 A simple dashboard built to track daily work for the tailors at my family's shop, Jentre.pk. Built from scratch using HTML, CSS, and Vanilla JavaScript.
 
-![Jentre dashboard screenshot](./Screenshot.png)
+![Jentre dashboard screenshot](./screenshot.png)
 **[Live Demo →](https://hafizzahmadraza.github.io/Jentre-tailoring-dashboard/)**
 
 ## Why I built this
